@@ -106,6 +106,12 @@ public class Deck {
         }
     }
 
+    // Deal one card to the given player
+    public void dealCard(Player givenPlayer) {
+        Card dealingCard = this.removeFirstCard();
+        givenPlayer.addCardToHand(dealingCard);
+    }
+
     public void printDeck() {
         Card cursor = head;
         if (head == null) {

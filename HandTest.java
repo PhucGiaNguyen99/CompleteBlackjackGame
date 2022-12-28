@@ -25,10 +25,10 @@ class HandTest {
             Card card4 = new Card(String.valueOf(randomNum4), "H", null);
 
             Hand hand1 = new Hand();
-            hand1.addCardToHand(card1);
-            hand1.addCardToHand(card2);
-            hand1.addCardToHand(card3);
-            hand1.addCardToHand(card4);
+            hand1.addCard(card1);
+            hand1.addCard(card2);
+            hand1.addCard(card3);
+            hand1.addCard(card4);
 
             int sumHand = card1.getCardValue() + card2.getCardValue() + card3.getCardValue() + card4.getCardValue();
 
@@ -46,9 +46,9 @@ class HandTest {
         Card card4 = new Card("1", "H", null);
 
         Hand hand1 = new Hand();
-        hand1.addCardToHand(card3);
-        hand1.addCardToHand(card4);
-        assertEquals(true, hand1.isBlackJack());
+        hand1.addCard(card3);
+        hand1.addCard(card4);
+        assertEquals(true, hand1.hasBlackjack());
     }
 
     @Test
@@ -66,10 +66,10 @@ class HandTest {
             Card card4 = new Card(String.valueOf(randomNum4), "H", null);
 
             Hand hand1 = new Hand();
-            hand1.addCardToHand(card1);
-            hand1.addCardToHand(card2);
-            hand1.addCardToHand(card3);
-            hand1.addCardToHand(card4);
+            hand1.addCard(card1);
+            hand1.addCard(card2);
+            hand1.addCard(card3);
+            hand1.addCard(card4);
 
             int sumHand = card1.getCardValue() + card2.getCardValue() + card3.getCardValue() + card4.getCardValue();
 
@@ -92,10 +92,10 @@ class HandTest {
             Card card4 = new Card("1", "H", null);
 
             Hand hand1 = new Hand();
-            hand1.addCardToHand(card1);
-            hand1.addCardToHand(card2);
-            hand1.addCardToHand(card3);
-            hand1.addCardToHand(card4);
+            hand1.addCard(card1);
+            hand1.addCard(card2);
+            hand1.addCard(card3);
+            hand1.addCard(card4);
 
             int sumHand = card1.getCardValue() + card2.getCardValue() + card3.getCardValue() + card4.getCardValue();
             System.out.println("Number 1: " + randomNum1);
@@ -126,10 +126,10 @@ class HandTest {
             Card card4 = new Card("1", "H", null);
 
             Hand hand1 = new Hand();
-            hand1.addCardToHand(card1);
-            hand1.addCardToHand(card2);
-            hand1.addCardToHand(card3);
-            hand1.addCardToHand(card4);
+            hand1.addCard(card1);
+            hand1.addCard(card2);
+            hand1.addCard(card3);
+            hand1.addCard(card4);
 
             int sumHand = card1.getCardValue() + card2.getCardValue() + card3.getCardValue() + card4.getCardValue();
             System.out.println("Number 1: " + randomNum1);
@@ -161,10 +161,10 @@ class HandTest {
         Card card4 = new Card("1", "H", null);
 
         Hand hand1 = new Hand();
-        hand1.addCardToHand(card1);
-        hand1.addCardToHand(card2);
-        hand1.addCardToHand(card3);
-        hand1.addCardToHand(card4);
+        hand1.addCard(card1);
+        hand1.addCard(card2);
+        hand1.addCard(card3);
+        hand1.addCard(card4);
 
         Card card5 = new Card("5", "H", null);
         Card card6 = new Card("4", "H", null);
@@ -172,10 +172,10 @@ class HandTest {
         Card card8 = new Card("9", "H", null);
 
         Hand hand2 = new Hand();
-        hand2.addCardToHand(card5);
-        hand2.addCardToHand(card6);
-        hand2.addCardToHand(card7);
-        hand2.addCardToHand(card8);
+        hand2.addCard(card5);
+        hand2.addCard(card6);
+        hand2.addCard(card7);
+        hand2.addCard(card8);
         assertEquals(-1, hand1.compareTo(hand2));
     }
 
@@ -188,10 +188,10 @@ class HandTest {
         Card card4 = new Card("9", "H", null);
 
         Hand hand1 = new Hand();
-        hand1.addCardToHand(card1);
-        hand1.addCardToHand(card2);
-        hand1.addCardToHand(card3);
-        hand1.addCardToHand(card4);
+        hand1.addCard(card1);
+        hand1.addCard(card2);
+        hand1.addCard(card3);
+        hand1.addCard(card4);
 
         Card card5 = new Card("5", "H", null);
         Card card6 = new Card("4", "H", null);
@@ -199,29 +199,29 @@ class HandTest {
         Card card8 = new Card("6", "H", null);
 
         Hand hand2 = new Hand();
-        hand2.addCardToHand(card5);
-        hand2.addCardToHand(card6);
-        hand2.addCardToHand(card7);
-        hand2.addCardToHand(card8);
+        hand2.addCard(card5);
+        hand2.addCard(card6);
+        hand2.addCard(card7);
+        hand2.addCard(card8);
         assertEquals(0, hand1.compareTo(hand2));
     }
 
     @Test
     void compareToWhenBothHaveBJ() {
         Hand hand1 = new Hand();
-        hand1.addCardToHand(new Card("1", "H", null));
-        hand1.addCardToHand(new Card("13", "H", null));
+        hand1.addCard(new Card("1", "H", null));
+        hand1.addCard(new Card("13", "H", null));
 
         Hand hand2 = new Hand();
-        hand2.addCardToHand(new Card("1", "H", null));
-        hand2.addCardToHand(new Card("11", "H", null));
+        hand2.addCard(new Card("1", "H", null));
+        hand2.addCard(new Card("11", "H", null));
         assertEquals(0, hand1.compareTo(hand2));
     }
     @Test
     void compareToWhenOneHasBJ() {
         Hand hand1 = new Hand();
-        hand1.addCardToHand(new Card("1", "H", null));
-        hand1.addCardToHand(new Card("13", "H", null));
+        hand1.addCard(new Card("1", "H", null));
+        hand1.addCard(new Card("13", "H", null));
 
         Card card5 = new Card("5", "H", null);
         Card card6 = new Card("4", "H", null);
@@ -229,10 +229,10 @@ class HandTest {
         Card card8 = new Card("5", "H", null);
 
         Hand hand2 = new Hand();
-        hand2.addCardToHand(card5);
-        hand2.addCardToHand(card6);
-        hand2.addCardToHand(card7);
-        hand2.addCardToHand(card8);
+        hand2.addCard(card5);
+        hand2.addCard(card6);
+        hand2.addCard(card7);
+        hand2.addCard(card8);
         assertEquals(1, hand1.compareTo(hand2));
     }
 

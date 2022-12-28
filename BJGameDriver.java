@@ -13,7 +13,7 @@ public class BJGameDriver {
     // Initialize the number of players
 
     private int numOfPlayers;
-    private Deck deckOfCards;
+    private Deck deck;
 
     // Create an object for the dealer
     private Dealer dealer = new Dealer();
@@ -79,6 +79,29 @@ public class BJGameDriver {
      */
 
 
+    // Method to initialize the players list
+    // Given the array list of players, assign it to playersList and append the Player object of dealer
+    public void initPlayers(ArrayList<Player> playersList) {
+        this.playersList = playersList;
+
+        // Generate Player object for the dealer
+        Player dealer = new Player("Dealer", "911", true);
+
+        // Add dealer to the end of the players list
+        this.playersList.add(dealer);
+    }
+
+    // Method to test the initPlayers method above
+    // Return a string of name of the players in the players list
+    public String getNamesPlayersList() {
+        String namesString = "";
+        for (Player player : playersList) {
+            namesString += player.getName() + " ";
+        }
+        return namesString;
+    }
+
+
     //*************************************************************************************
     // Request the input of the player for the move option
     private String getMove(Player player) {
@@ -98,20 +121,15 @@ public class BJGameDriver {
     //*************************************************************************************
     // Shuffle the deck of cards
     private void shuffleDeck() {
-        deckOfCards.shuffleDeck();
+        deck.shuffleDeck();
     }
 
 
     // For the case the deck is not empty initially
     private void initDeck() {
-        deckOfCards = new Deck(false);
+        deck = new Deck(false);
     }
 
-    // Initialize the players list and winners list
-    private void initPlayers(ArrayList<Player> playerArrayList) {
-        this.playersList = playerArrayList;
-        this.winnersArrayList = new ArrayList<>();
-    }
 
     //*************************************************************************************
     // Check if the game is finished yet
@@ -151,7 +169,7 @@ public class BJGameDriver {
 
                     if (playerPoint > dealerPoint) {
                         player.setStatusWin();
-                        winnersArrayList.add(player);
+                        //winnersArrayList.add(player);
                     } else if (playerPoint == dealerPoint) {
                         player.setStatusTie();
                     } else {
@@ -194,13 +212,13 @@ public class BJGameDriver {
     //CHECKED
     // Remove the first card of the deck
     private Card removeFirstCard() {
-        return deckOfCards.removeFirstCard();
+        return deck.removeFirstCard();
     }
 
     //CHECKED
     // Dealing one card for the player
     private void dealCardForPlayer(Player player) {
-        player.dealCardForPlayer(removeFirstCard());
+        player.addCardToHand(removeFirstCard());
     }
 
 
@@ -211,7 +229,7 @@ public class BJGameDriver {
     // and use such list after that
 
     //*************************************************************************************
-    private void checkBlackJack() {
+    /*private void checkBlackJack() {
 
         // Show that the dealer has Black Jack
         if (dealer.isBlackJack()) {
@@ -249,7 +267,7 @@ public class BJGameDriver {
             }
 
         }
-    }
+    }*/
 
 
     // To start the game, Deal 2 cards for each player and the dealer

@@ -20,7 +20,7 @@ public class Dealer {
 
     // Add one card to the dealer hand
     public void addFront(Card card) {
-        dealerHand.dealCard(card);
+        dealerHand.addCard(card);
     }
 
     public int calculateTotalDealerHand() {
@@ -33,7 +33,7 @@ public class Dealer {
 
     // Add one card to the player hand
     public void dealCardForDealer(Card card) {
-        this.getDealerHand().dealCard(card);
+        this.getDealerHand().addCard(card);
     }
 
     public boolean isBusted() {

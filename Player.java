@@ -4,7 +4,7 @@ public class Player {
     private String phoneNumber;
 
     // A card hand to save the hand of the player
-    private Hand playerHand;
+    private Hand hand;
 
     // Status to determine whether the user is losing, winning or even to the opponent
     private int status;
@@ -19,7 +19,7 @@ public class Player {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.isDealer = isDealer;
-        this.playerHand = new Hand();
+        this.hand = new Hand();
         this.status = STATUS_UNDETERMINED;
     }
 
@@ -85,23 +85,24 @@ public class Player {
         this.phoneNumber = phoneNumber;
     }
 
-    public Hand getPlayerHand() {
-        return playerHand;
+    public Hand getHand() {
+        return hand;
     }
 
-    public void setPlayerHand(Hand playerHand) {
-        this.playerHand = playerHand;
+    public void setHand(Hand hand) {
+        this.hand = hand;
     }
 
 
     // Get the total point of the player hand
     public int getTotalPointOfHand() {
-        return playerHand.calculateTotalPoint();
+        return hand.calculateTotalPoint();
     }
 
-    // Print out the hand
+    // Print out the player's hand
     public void printHand() {
-        playerHand.presentHand();
+        System.out.println(getName() + "'s hand: ");
+        hand.presentHand();
     }
 
     // Return string of name and phone number of the player
@@ -111,18 +112,18 @@ public class Player {
 
     // Deal one card for the player
     // by adding this card to the player's hand
-    public void dealCardForPlayer(Card card) {
-        this.getPlayerHand().dealCard(card);
+    public void addCardToHand(Card card) {
+        this.getHand().addCard(card);
     }
 
     // Check if the player busted or not
     public boolean isBusted() {
-        return playerHand.isBusted();
+        return hand.isBusted();
     }
 
     // Check if the player has Blackjack
     public boolean hasBlackJack() {
-        return playerHand.hasBlackkack();
+        return hand.hasBlackjack();
     }
 
     //public boolean hasAce() {

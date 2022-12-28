@@ -79,17 +79,16 @@ public class Hand {
         return (acesSum + nonAcesSum);
     }
 
-    // Present card hand of the player
+    // Print out hand
     public void presentHand() {
-        System.out.println("Card hand of the player: ");
         for (int cardIndex = 0; cardIndex < hand.size(); cardIndex++) {
             System.out.println(hand.get(cardIndex).printCard());
         }
     }
 
     // Add new card to the player's hand
-    public void dealCard(Card card) {
-        hand.add(card);
+    public void addCard(Card card) {
+        this.hand.add(card);
     }
 
 
