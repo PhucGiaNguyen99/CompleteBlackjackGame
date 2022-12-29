@@ -65,7 +65,7 @@ public class Player {
 
     // Return name and status of the player
     public String getResult() {
-        return "Player: " + this.getName() + ", Status: " + this.getStatus();
+        return getName() + ": " + this.getStatusString();
     }
 
 
