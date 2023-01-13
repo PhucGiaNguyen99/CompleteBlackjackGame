@@ -217,6 +217,7 @@ class HandTest {
         hand2.addCard(new Card("11", "H", null));
         assertEquals(0, hand1.compareTo(hand2));
     }
+
     @Test
     void compareToWhenOneHasBJ() {
         Hand hand1 = new Hand();
@@ -242,5 +243,38 @@ class HandTest {
 
     @Test
     void main() {
+    }
+
+    @Test
+    void getStringHand() {
+        Hand hand1 = new Hand();
+        hand1.addCard(new Card("1", "H", null));
+        hand1.addCard(new Card("13", "H", null));
+
+        assertEquals("A- H\nK- H", hand1.getStringHand());
+    }
+
+    @Test
+    void getStringHandAndTotalPoint() {
+        Hand hand1 = new Hand();
+        hand1.addCard(new Card("6", "H", null));
+        hand1.addCard(new Card("13", "H", null));
+        hand1.addCard(new Card("4", "H", null));
+        //System.out.println(hand1.getStringHandAndTotalPoint());
+        assertEquals("6- H\nK- H\n4- H\nTotal: 20", hand1.getStringHandAndTotalPoint());
+    }
+
+    @Test
+    void emptyHand() {
+        Hand hand1 = new Hand();
+        hand1.addCard(new Card("6", "H", null));
+        hand1.addCard(new Card("13", "H", null));
+        hand1.addCard(new Card("4", "H", null));
+        System.out.println(hand1.getStringHandAndTotalPoint());
+        // After emptying hand
+        System.out.println("Empty hand!");
+        hand1.resetHand();
+        System.out.println(hand1.getStringHandAndTotalPoint());
+
     }
 }

@@ -112,17 +112,42 @@ public class Deck {
         givenPlayer.addCardToHand(dealingCard);
     }
 
-    public void printDeck() {
+    // Get String of Deck
+    public String getStringDeck() {
+        String stringDeck = "";
         Card cursor = head;
+        if (head == null) {
+            return stringDeck;
+        }
+
+        while (cursor != null) {
+
+            stringDeck += cursor.getStringCard();
+            if (cursor.getLink() != null) {
+                stringDeck += "\n";
+            }
+            cursor = cursor.getLink();
+        }
+        return stringDeck;
+    }
+
+    public void printDeck() {
+        /*Card cursor = head;
         if (head == null) {
             return;
         }
 
         while (cursor != null) {
 
-            System.out.println(cursor.printCard());
+            System.out.println(cursor.getStringCard());
             cursor = cursor.getLink();
-        }
+        }*/
+        System.out.println(getStringDeck());
+    }
+
+    public static void main(String[] args) {
+        Deck deck = new Deck(false);
+        deck.printDeck();
     }
 
 }

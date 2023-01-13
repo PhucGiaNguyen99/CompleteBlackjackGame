@@ -28,7 +28,7 @@ public class Dealer {
     }
 
     public void printHand() {
-        dealerHand.presentHand();
+        dealerHand.printHand();
     }
 
     // Add one card to the player hand
@@ -46,6 +46,6 @@ public class Dealer {
 
     // Check if there is any Ace in the dealer hand
     public boolean containAce() {
-        return dealerHand.containsAce();
+        return dealerHand.hasAce();
     }
 }

@@ -11,7 +11,7 @@ public class Card {
     }
 
     // Return card in form "Suit- Value"
-    public String printCard() {
+    public String getStringCard() {
         switch (suit) {
             case "C":
                 switch (value) {
@@ -74,6 +74,10 @@ public class Card {
         return null;
     }
 
+    public void printCard() {
+        System.out.println(getStringCard());
+    }
+
     public void setCard(String value, String suit) {
         this.value = value;
         this.suit = suit;
@@ -91,6 +95,14 @@ public class Card {
     // Return value of the card
     // Values 11, 12 and 13 are counted as 10 only
     public int getCardValue() {
+        // given value "J", "K" or "Q", return integer value of 10
+        if (value.equals("J") || value.equals("Q") || value.equals("K")) {
+            return 10;
+        }
+        // given value "A", return integer value of 1
+        if (value.equals("A")) {
+            return 1;
+        }
         if (value.equals("11") || value.equals("12") || value.equals("13")) {
             return 10;
         }
@@ -100,7 +112,7 @@ public class Card {
 
     // Compare two cards by comparing their values.
     // Return 1 if the card is larger than the other one, or return -1 if it is smaller, else return 0
-    public int compareTo(Card otherCard) {
+    public int compareCards(Card otherCard) {
         return this.getCardValue() > otherCard.getCardValue() ? 1 : this.getCardValue() < otherCard.getCardValue() ? -1 : 0;
     }
 

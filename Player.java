@@ -27,7 +27,7 @@ public class Player {
         return status;
     }
 
-    public String getStatusString() {
+    public String getStringStatus() {
         switch (getStatus()) {
             case -1:
                 return "Lose";
@@ -37,6 +37,22 @@ public class Player {
                 return "Win";
         }
         return "Undetermined";
+    }
+
+    public boolean isStatusWin() {
+        return status == STATUS_WIN;
+    }
+
+    public boolean isStatusLose() {
+        return status == STATUS_LOSE;
+    }
+
+    public boolean isStatusUndetermined() {
+        return status == STATUS_UNDETERMINED;
+    }
+
+    public boolean isStatusTie() {
+        return status == STATUS_TIE;
     }
 
     public void setStatus(int status) {
@@ -65,7 +81,7 @@ public class Player {
 
     // Return name and status of the player
     public String getResult() {
-        return getName() + ": " + this.getStatusString();
+        return getName() + ": " + this.getStringStatus();
     }
 
 
@@ -93,6 +109,10 @@ public class Player {
         this.hand = hand;
     }
 
+    // Return string of hand
+    public String getStringHand() {
+        return hand.getStringHand();
+    }
 
     // Get the total point of the player hand
     public int getTotalPointOfHand() {
@@ -102,11 +122,11 @@ public class Player {
     // Print out the player's hand
     public void printHand() {
         System.out.println(getName() + "'s hand: ");
-        hand.presentHand();
+        hand.printHand();
     }
 
     // Return string of name and phone number of the player
-    public String toString() {
+    public String getStringPlayerNameAndPhoneNumber() {
         return "Name: " + name + ".  " + "Phone number: " + phoneNumber;
     }
 
@@ -124,6 +144,21 @@ public class Player {
     // Check if the player has Blackjack
     public boolean hasBlackJack() {
         return hand.hasBlackjack();
+    }
+
+    // Return String hand and total point of player's hand
+    public String getStringHandAndTotalPoint() {
+        return hand.getStringHandAndTotalPoint();
+    }
+
+    // Check if player's hand has an Ace
+    public boolean playerHasAce() {
+        return hand.hasAce();
+    }
+
+    // Empty player's hand
+    public void resetHand() {
+        hand.resetHand();
     }
 
     //public boolean hasAce() {

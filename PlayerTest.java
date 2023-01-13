@@ -230,4 +230,16 @@ class PlayerTest {
     @Test
     void testIsBlackJack1() {
     }
+
+    @Test
+    void getStringHandAndTotalPoint() {
+        Player Phuc = new Player("Phuc", "555", false);
+        Hand hand1 = new Hand();
+        hand1.addCard(new Card("6", "H", null));
+        hand1.addCard(new Card("13", "H", null));
+        hand1.addCard(new Card("4", "H", null));
+        //System.out.println(hand1.getStringHandAndTotalPoint());
+        Phuc.setHand(hand1);
+        assertEquals("6- H\nK- H\n4- H\nTotal: 20", hand1.getStringHandAndTotalPoint());
+    }
 }

@@ -79,11 +79,26 @@ public class Hand {
         return (acesSum + nonAcesSum);
     }
 
-    // Print out hand
-    public void presentHand() {
+    // Get String of hand
+    public String getStringHand() {
+        String stringHand = "";
         for (int cardIndex = 0; cardIndex < hand.size(); cardIndex++) {
-            System.out.println(hand.get(cardIndex).printCard());
+            stringHand += hand.get(cardIndex).getStringCard();
+            if (cardIndex < hand.size() - 1) {
+                stringHand += "\n";
+            }
         }
+        return stringHand;
+    }
+
+    // Print out hand
+    public void printHand() {
+        System.out.println(getStringHand());
+    }
+
+    // Return string of hand and total point of hand
+    public String getStringHandAndTotalPoint() {
+        return getStringHand() + "\n" + "Total: " + calculateTotalPoint();
     }
 
     // Add new card to the player's hand
@@ -98,13 +113,19 @@ public class Hand {
     }
 
     // Check whether card hand including any ace
-    public boolean containsAce() {
+    public boolean hasAce() {
         for (Card card : hand) {
             if (card.getCardValue() == 1) {
                 return true;
             }
         }
         return false;
+    }
+
+    // Uses for Test purposes
+    // Empty hand
+    public void resetHand() {
+        hand = new ArrayList<>();
     }
 
 

@@ -20,4 +20,10 @@ class DeckTest {
     @Test
     void main() {
     }
+
+    // Test print out Deck in the class
+    @Test
+    void getStringDeck() {
+
+    }
 }

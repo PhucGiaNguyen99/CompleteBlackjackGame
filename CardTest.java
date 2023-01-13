@@ -12,14 +12,14 @@ class CardTest {
         for (int i = 0; i < 1000; i++) {
             int randomNumber = random.nextInt(2, 11);
             Card card1 = new Card(String.valueOf(randomNumber), "H", null);
-            assertEquals(randomNumber + "- H", card1.printCard());
+            assertEquals(randomNumber + "- H", card1.getStringCard());
         }
     }
 
     @Test
     void printCardAce() {
         Card card1 = new Card("1", "H", null);
-        assertEquals("A- H", card1.printCard());
+        assertEquals("A- H", card1.getStringCard());
     }
 
     @Test
@@ -29,11 +29,11 @@ class CardTest {
             int randomNumber = random.nextInt(11, 14);
             Card card1 = new Card(String.valueOf(randomNumber), "H", null);
             if (randomNumber == 11) {
-                assertEquals("J- H", card1.printCard());
+                assertEquals("J- H", card1.getStringCard());
             } else if (randomNumber == 12) {
-                assertEquals("Q- H", card1.printCard());
+                assertEquals("Q- H", card1.getStringCard());
             } else {
-                assertEquals("K- H", card1.printCard());
+                assertEquals("K- H", card1.getStringCard());
             }
         }
     }
@@ -80,12 +80,25 @@ class CardTest {
             Card card1 = new Card(String.valueOf(randomNumber1), "H", null);
             Card card2 = new Card(String.valueOf(randomNumber2), "H", null);
             if (randomNumber1 < randomNumber2) {
-                assertEquals(card1.compareTo(card2), -1);
+                assertEquals(card1.compareCards(card2), -1);
             } else if (randomNumber1 > randomNumber2) {
-                assertEquals(card1.compareTo(card2), 1);
+                assertEquals(card1.compareCards(card2), 1);
             } else {
-                assertEquals(card1.compareTo(card2), 0);
+                assertEquals(card1.compareCards(card2), 0);
             }
         }
+    }
+
+    @Test
+    void compareCardsTest() {
+        Card card1 = new Card("1", "S", null);
+        Card card2 = new Card("3", "S", null);
+        assertEquals(-1, card1.compareCards(card2));
+    }
+
+    @Test
+    void getStringCard() {
+        Card newCard = new Card("7", "S", null);
+        assertEquals("7- S", newCard.getStringCard());
     }
 }
